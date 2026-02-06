@@ -29,6 +29,9 @@ jobs:
     - name: Run update_weather.py
       run: |
         python update_weather.py
+      env:
+                                # settings의 githubaction의 repository secret에 넘겨준 변수명 사용
+        OPENWEATHER_API_KEY : ${{ secrets.OPENWEATHER_API_KEY }}
     - name: Commit and Push
       run: |
           git config --global user.name "github-actions[bot]"
